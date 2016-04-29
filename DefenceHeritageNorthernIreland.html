@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <title></title>
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="Resource-type" content="Document" />
+    <!-- android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link id="shortcut-icon" rel="shortcut icon" sizes="128x128" href="">
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link id="touch-icon" rel="apple-touch-icon" sizes="128x128" href="">
+    <!-- IE -->
+    <meta http-equiv="cleartype" content="on">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,200,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="vendors/jquery.fullPage.css" />
+    <link type="text/css" rel="Stylesheet" href="vendors/bjqs.css" />
+    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+    <style type="text/css">
+    /* Sections
+       * --------------------------------------- */
+    
+    #section0 img,
+    #section1 img {
+        margin: 20px 0 0 0;
+    }
+    
+    #section2 img {
+        margin: 20px 0 0 52px;
+    }
+    
+    #section3 img {
+        bottom: 0px;
+        position: absolute;
+        margin-left: -420px;
+    }
+    
+    .intro p {
+        width: 50%;
+        margin: 0 auto;
+        font-size: 1.5em;
+    }
+    
+    .twitter-share-button {
+        position: absolute;
+        z-index: 99;
+        right: 149px;
+        top: 9px;
+    }
+    </style>
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+</head>
+
+<body>
+    <ul id="menu">
+        <li data-menuanchor="intro" class="active">
+            <a id="intro-section-item" href="#intro"></a>
+        </li>
+        <li data-menuanchor="features" id="features-menu-item">
+            <a id="features-section-item" href="#features"></a>
+        </li>
+        <li data-menuanchor="about" id="about-menu-item">
+            <a id="about-section-item" href="#about"></a>
+        </li>
+        <li data-menuanchor="explore" id="explore-menu-item">
+            <a id="explore-section-item" href="#explore"></a>
+        </li>
+        <li data-menuanchor="connect" id="connect-menu-item">
+            <a id="connect-section-item" href="#connect"></a>
+        </li>
+    </ul>
+    <div id="fullpage">
+        <div id="home-section" class="section active" style="background-image:url('assets/backgrounds/bridgeblurdark.jpg')">
+            <div class="row">
+                <div id="title-container" class="column col-50">
+                    <img id="app-icon">
+                    <h1 id="title" class="title column-title"></h1>
+                    <p id="subtitle" class="subtitle column-subtitle"></p>
+                    <p id="author" class="description"></p>
+                    <div id="platform-buttons" class="row sub-row">
+                        <a id="iOS-link" href="#" class="button title-button">
+                            <img src="assets/icons/apple.png">
+                            <span>iOS</span>
+                        </a>
+                        <a id="android-link" href="#" class="button title-button">
+                            <img src="assets/icons/android.png">
+                            <span>Android</span>
+                        </a>
+                        <a id="web-app-link" href="http://geology.utah.gov/Surveynotes/geosights" class="button title-button">
+                            <img src="assets/icons/web.png">
+                            <span>Web</span>
+                        </a>
+                        <a id="windows-8-link" href="http://geology.utah.gov/Surveynotes/geosights" class="button title-button">
+                            <img src="assets/icons/web.png">
+                            <span>Windows 8</span>
+                        </a>
+                        <a id="osX-link" href="http://geology.utah.gov/Surveynotes/geosights" class="button title-button">
+                            <img src="assets/icons/web.png">
+                            <span>Mac osX</span>
+                        </a>
+                    </div>
+                </div>
+                <!--
+             -->
+                <div class="shim-column">
+                    <div id="app-image-container">
+                        <img id="shim-container" src="">
+                        <img id="shim" src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="features-section">
+            <div class="row">
+                <h1 class="title" id="features-section-name">Features</h1>
+            </div>
+            <div class="row">
+                <div class="column col-50">
+                    <div id="slide-container">
+                        <ul id="screenshots-carousel" class="bjqs">
+                            <li>
+                                <img src="assets/screenshots/portrait1.png">
+                            </li>
+                            <li>
+                                <img src="assets/screenshots/portrait2.png">
+                            </li>
+                            <li>
+                                <img src="assets/screenshots/portrait3.png">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column col-50 sub-content-column">
+                    <h3 id="features-blurb" class="subtitle column-subtitle">Explore the app.</h3>
+                    <ul id="featured-points" class="sub-row">
+                        <li class="column-list-item">
+                            <img class="list-img" src="assets/icons/dot.png">
+                            <span class="description">Cross-platform</span>
+                        </li>
+                        <li class="column-list-item">
+                            <img class="list-img" src="assets/icons/dot.png">
+                            <span class="description">Simple</span>
+                        </li>
+                        <li class="column-list-item">
+                            <img class="list-img" src="assets/icons/dot.png">
+                            <span class="description">Easy to use</span>
+                        </li>
+                        <li class="column-list-item">
+                            <img class="list-img" src="assets/icons/dot.png">
+                            <span class="description">Runs on any device</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="about-section">
+            <div class="row">
+                <h1 class="title" id="about-section-name">About</h1>
+            </div>
+            <div class="row">
+                <div class="column col-75">
+                    <p id="about-paragraph" class="description">
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <h1 class="subtitle" id="about-contact-us">Contact Us</h1>
+                <h3 id="contact-information" class="description"></h3>
+            </div>
+        </div>
+        <div class="section" id="explore-section">
+            <div class="row">
+                <h1 class="title" id="explore-section-name">Explore</h1>
+                <h3 class="subtitle" id="video-introduction"></h3>
+            </div>
+            <div class="row">
+                <div>
+                    <iframe id="video-container" src="" width="80%" height="400px" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="connect-section">
+            <div class="row">
+                <h1 class="title" id="connect-section-name">Connect</h1>
+            </div>
+            <div class="row">
+                <div id="twitter-column" class="column col-50 timeline-column" style="display:none;">
+                    <div id="twitter-div">
+                        <a id="twitter-widget" class="twitter-timeline" height="450px" href="" data-widget-id=""></a>
+                    </div>
+                </div>
+                <div class="column col-50">
+                    <div class="list-container">
+                        <center>
+                            <ul id="social-links" class="sub-row list">
+                                <li class="column-list-item share-item">
+                                    <a href="#" class="column-list-item-link" target="_blank">
+                                        <img class="list-img share-img" src="assets/icons/twitterdark.png">
+                                        <span class="subtitle">Follow our tweets</span>
+                                    </a>
+                                </li>
+                                <li class="column-list-item share-item">
+                                    <a href="#" class="column-list-item-link"  target="_blank">
+                                        <img class="list-img share-img" src="assets/icons/facebookdark.png">
+                                        <span class="subtitle">See our posts</span>
+                                    </a>
+                                </li>
+                                <li class="column-list-item share-item">
+                                    <a href="#" class="column-list-item-link" target="_blank">
+                                        <img class="list-img share-img" src="assets/icons/blogdark.png">
+                                        <span class="subtitle">Read our blog</span>
+                                    </a>
+                                </li>
+                                <li class="column-list-item share-item">
+                                    <a href="http://geology.utah.gov/" class="column-list-item-link"  target="_blank">
+                                        <img class="list-img share-img" src="assets/icons/webdark.png">
+                                        <span class="subtitle">Visit our site</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendors/jquery.min.js"></script>
+    <script src="vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="vendors/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="vendors/jquery.fullPage.js"></script>
+    <script src="vendors/bjqs-1.3.min.js"></script>
+    <!-- <script type="text/javascript" src="config.js"></script> -->
+    <script type="text/javascript" src="scripts/dataInjector.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript">
+    var switchTo5x = true;
+    </script>
+</body>
+
+</html>
