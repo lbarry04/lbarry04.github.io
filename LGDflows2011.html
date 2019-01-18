@@ -1,0 +1,169 @@
+
+<!DOCTYPE html><meta charset="utf-8"><style>body {  font: 10px sans-serif;}.chord path {  fill-opacity: .67;  stroke: #cccccc;  stroke-width: .25px;}</style><body><script src="http://d3js.org/d3.v3.min.js"></script> <script>
+var matrix = [[9465,107,42,1485,35,18,4538,139,282,108,73,171,42,33,39,8,187,15,669,407,14,68,1442,142,4,2],
+[271,9384,71,83,6,33,8492,80,2875,19,10,138,23,526,35,10,36,4,562,14,1,93,550,3572,5,2],
+[125,100,9169,116,13,397,1212,8,104,26,72,3954,12,44,1275,40,9,5,313,24,0,1223,142,66,60,4],
+[2801,28,62,13920,419,77,2418,92,160,399,80,123,69,35,31,6,429,35,189,380,85,76,787,65,13,1],
+[352,8,12,1692,3273,4,537,6,32,2352,64,15,143,3,44,23,70,129,39,161,339,4,141,10,7,6],
+[188,68,448,79,5,5583,2799,78,291,18,27,2098,10,558,127,9,32,1,2155,5,1,1548,215,87,14,2],
+[1414,801,128,386,29,126,75031,493,5580,147,74,749,150,448,133,82,317,19,3710,88,15,258,4506,1578,64,7],
+[491,47,20,182,8,25,5325,4305,326,23,6,97,17,33,14,3,754,4,252,11,4,66,2497,158,5,0],
+[320,751,28,82,6,42,15377,120,5885,21,8,217,49,392,42,16,79,1,1130,14,2,63,788,678,8,2],
+[294,16,26,929,1115,17,824,17,62,12496,124,51,746,15,75,53,42,626,103,404,402,9,150,33,65,29],
+[227,4,134,169,43,9,521,6,29,219,5871,239,264,14,1490,44,16,48,62,1143,4,22,84,10,278,30],
+[444,53,1747,118,6,1062,3780,98,347,27,102,19915,14,247,875,33,41,7,2272,16,2,651,379,101,43,5],
+[80,6,31,100,35,6,619,5,41,376,155,36,26710,11,208,163,7,1003,47,160,8,15,67,13,240,438],
+[145,568,73,43,2,202,5249,48,1383,16,13,320,11,11346,35,6,72,2,1149,16,2,796,257,233,3,0],
+[92,13,1147,34,17,40,963,10,76,68,929,1079,338,22,10796,560,8,25,158,146,5,104,94,18,651,38],
+[48,7,89,29,8,13,423,1,28,77,68,62,162,14,576,14986,9,107,43,71,27,23,39,17,835,93],
+[492,26,16,680,10,5,2263,858,128,39,5,42,12,58,2,3,5091,2,127,16,28,73,1352,73,2,0],
+[108,5,14,111,49,5,337,6,25,916,37,12,2657,3,43,146,13,4033,32,337,26,2,49,14,44,65],
+[1292,227,177,138,4,433,17480,121,1571,64,39,1455,46,550,196,24,94,9,17213,34,4,229,1030,355,22,2],
+[1009,8,41,820,136,7,1229,18,44,628,997,54,419,7,196,81,54,198,69,7072,68,14,211,24,117,36],
+[94,4,2,483,354,2,357,9,26,766,22,12,67,4,34,34,112,40,24,93,1804,5,43,3,109,7],
+[126,151,901,70,2,756,1969,67,135,15,25,762,25,774,112,20,105,0,378,16,3,20462,338,102,20,2],
+[1639,167,48,687,24,27,14463,985,847,75,30,166,48,93,42,11,617,9,630,51,8,176,11241,367,12,2],
+[287,2404,30,78,4,45,10729,135,1778,26,4,142,22,163,23,8,67,2,491,15,3,121,704,11673,6,1],
+[54,3,65,30,17,16,425,2,30,87,285,119,399,12,782,1017,7,34,58,110,43,24,46,16,10118,708],
+[23,3,16,13,6,1,169,2,10,68,71,18,1861,5,70,221,3,66,26,43,15,7,27,9,1639,5343]];
+//[2]label for the matrix
+var names = ["Antrim","Ards","Armagh","Ballymena","Ballymoney","Banbridge","Belfast","Carrickfergus","Castlereagh","Coleraine","Cookstown","Craigavon","Derry","Down","Dungannon","Fermanagh","Larne","Limavady","Lisburn","Magherafelt","Moyle","Newry and Mourne","Newtownabbey","North Down","Omagh","Strabane"] 
+           
+var chord = d3.layout.chord()
+ .padding(0.01)    .sortSubgroups(d3.descending)
+    .matrix(matrix);
+var width = 1000,height = 1000,    //[3]adjust the inner radius if teh label go outside of the chart area (it is .41 in teh original example)
+    innerRadius = Math.min(width, height) * .31,
+    outerRadius = innerRadius * 1.1;
+
+var fill = d3.scale.ordinal()
+//[4]change the number inside "range()" to the number of elements in the matrix
+    .domain(d3.range())
+//[5]Set the colour of the 26 elements
+.range(["00ff00","006666","003300","00ffff","3399cc","3366ff","#3300cc","#33ffff","#33cccc","ccff00","6666FF","#009966","#990000","#996633","cc0033","#cc6633","#FFFF99"  ,"#FF4D4D","#FF3333","#cc9999","#ffff99","#666666","#000000","#663300","#ffccff","#ff99cc","#ff33cc"]); 
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("g").selectAll("path")
+    .data(chord.groups)
+  .enter().append("path")
+    .style("fill", function(d) { return fill(d.index); })
+    .style("stroke", function(d) { return fill(d.index); })
+    .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+    .on("mouseover", fade(.1))
+    .on("mouseout", fade(1));
+
+function ShowTrick() {
+    var ticks = svg.append("g").selectAll("g")
+        .data(chord.groups)
+      .enter().append("g").selectAll("g")
+        .data(groupTicks)
+      .enter().append("g")
+        .attr("transform", function(d) {
+          return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+              + "translate(" + outerRadius + ",0)";
+        });
+    
+    ticks.append("line")
+        .attr("x1", 1)
+        .attr("y1", 0)
+        .attr("x2", 5)  //[6]how long is the trick line in the external ring
+        .attr("y2", 0)
+        .style("stroke", "#000");   //[7]Set the trick line colour in the external ring
+    
+    ticks.append("text")
+        .attr("x", 8)
+        .attr("dy", ".35em")
+     .attr("style","font-size:12px;")     .style("fill","rgb(51,51,51)")     .attr("font-family", "Arial")        .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+        .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+        .text(function(d) { return d.label; });
+}
+
+function ShowTotal() {
+    var ticks = svg.append("g").selectAll("g")
+        .data(chord.groups)
+      .enter().append("g").selectAll("g")
+        .data(groupValues)
+      .enter().append("g")
+        .attr("transform", function(d) {
+          return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+              + "translate(" + outerRadius + ",0)";
+        });
+
+    ticks.append("text")
+        .attr("x", 20)     .attr("dy", ".35em")     .attr("style","font-size:12px;")     .style("fill","rgb(51,51,51)")     .attr("font-family", "Arial").attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-40)" : null;})    
+    .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+    .text(function(d) { return d.label; })
+}
+
+//******************************************************
+function ShowLabel() {
+    var grp = svg.append("g").selectAll("g")
+        .data(chord.groups)
+      .enter().append("g").selectAll("g")
+        .data(groupNames)
+      .enter().append("g")
+        .attr("transform", function(d) {
+          return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+              + "translate(" + outerRadius + ",0)";
+        }
+        );
+    
+    grp.append("text")
+        .attr("x", 20)     .attr("dy", ".35em")     .attr("style","font-size:12px;")     .style("fill","rgb(51,51,51)")     .attr("font-family", "Arial")     .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-40)" : null;})        .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+        .text(function(d, i) { return d.label; });
+}
+function groupNames(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(d.value/2, d.value, d.value/2).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label:  names[d.index]
+    };
+  });
+}
+function groupValues(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(d.value/2, d.value, d.value/2).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label:  Math.round(d.value)
+    };
+  });
+}
+//********************************************************
+
+svg.append("g")
+    .attr("class", "chord")
+  .selectAll("path")
+    .data(chord.chords)
+  .enter().append("path")
+    .attr("d", d3.svg.chord().radius(innerRadius))
+    .style("fill", function(d) { return fill(d.target.index); })
+    .style("opacity", 1);
+
+// Returns an array of tick angles and labels, given a group.
+function groupTicks(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+return d3.range(0, d.value, 10000).map(function(v, i) {    return {
+      angle: v * k + d.startAngle,
+      label: i % 5 ? null : v / 1000 + "K"     };
+  });
+}
+
+
+
+// Returns an event handler for fading a given chord group.
+function fade(opacity) {
+  return function(g, i) {
+    svg.selectAll(".chord path")
+        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+        .style("opacity", opacity);
+  };
+}
+ShowLabel();</script>
